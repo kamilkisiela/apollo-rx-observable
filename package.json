@@ -1,0 +1,54 @@
+{
+  "name": "apollo-rx-observable",
+  "version": "0.0.1",
+  "description": "RxJS Observable wrapper for ApolloObservable",
+  "main": "src/index.js",
+  "typings": "./build/src/index.d.ts",
+  "author": "Kamil Kisiela <kamil.kisiela@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamilkisiela/apollo-rx-observable.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kamilkisiela/apollo-rx-observable/issues"
+  },
+  "homepage": "https://github.com/kamilkisiela/apollo-rx-observable#readme",
+  "scripts": {
+    "pretest": "npm run build",
+    "test": "npm run test-ci",
+    "posttest": "npm run remap && npm run lint",
+    "test-ci": "karma start --browsers Firefox",
+    "test-only": "karma start",
+    "test-watch": "karma start --no-single-run",
+    "remap": "remap-istanbul -i coverage/coverage.json -t lcovonly -o coverage/lcov.info",
+    "lint": "tslint -e src/*.ts && tslint test/*.ts ",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "clean": "rimraf build/* coverage/* typings/*",
+    "typings": "typings i",
+    "prepublish": "npm run clean && npm run typings && npm run build"
+  },
+  "peerDependencies": {
+    "apollo-client": "^0.4.0",
+    "rxjs": "^5.0.0-beta.6"
+  },
+  "devDependencies": {
+    "apollo-client": "^0.4.11",
+    "graphql": "^0.6.2",
+    "graphql-tag": "^0.1.11",
+    "istanbul-instrumenter-loader": "^0.2.0",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.1.2",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-coverage": "^1.1.1",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-webpack": "^1.8.0",
+    "remap-istanbul": "^0.6.4",
+    "rxjs": "5.0.0-beta.6",
+    "tslint": "^3.14.0",
+    "typescript": "^1.8.10",
+    "webpack": "^1.13.1"
+  }
+}
